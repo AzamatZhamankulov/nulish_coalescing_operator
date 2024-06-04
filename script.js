@@ -72,6 +72,8 @@
 const boxesQuery = document.querySelectorAll('.box');
 const boxesGet = document.getElementsByClassName('box');
 
+//! so boxesGet is live collections
+
 console.log(boxesQuery); // NodeList(3) => узлы - with methods
 console.log(boxesGet); // HTMLCollection(3) => Элементы - without mehtods
 // console.log(document.body.children); // HTMLCollection(3) => Элементы - without mehtods
@@ -79,5 +81,14 @@ console.log(boxesGet); // HTMLCollection(3) => Элементы - without mehtod
 boxesQuery[0].remove();
 boxesGet[0].remove();
 
+for (let i = 0; i < 5; i++) {
+    const div = document.createElement('div');
+    div.classList.add('box');
+    document.body.append(div);
+}
+
 console.log(boxesQuery); // NodeList(3) => still have all elements
-console.log(boxesGet); // HTMLCollection(1) => we get only one element
+console.log(boxesGet); // HTMLCollection(6) => we get 6 elements but without methods
+
+console.log(Array.from(boxesGet)); // now it is not LIVE collection it is just array
+
