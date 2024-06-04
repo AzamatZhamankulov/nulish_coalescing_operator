@@ -66,3 +66,18 @@
 
 // userData.say(); // Hello optional chaining operator!
 // userData.hey?.(); //
+
+
+//! Live collections and useful methods
+const boxesQuery = document.querySelectorAll('.box');
+const boxesGet = document.getElementsByClassName('box');
+
+console.log(boxesQuery); // NodeList(3) => узлы - with methods
+console.log(boxesGet); // HTMLCollection(3) => Элементы - without mehtods
+// console.log(document.body.children); // HTMLCollection(3) => Элементы - without mehtods
+
+boxesQuery[0].remove();
+boxesGet[0].remove();
+
+console.log(boxesQuery); // NodeList(3) => still have all elements
+console.log(boxesGet); // HTMLCollection(1) => we get only one element
